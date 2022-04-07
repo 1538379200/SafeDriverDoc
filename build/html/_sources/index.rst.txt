@@ -8,10 +8,11 @@ Welcome to SafeDriver's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
+   introduction
    Install
    use
+   problem
 
 
 

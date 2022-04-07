@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SafeDriver问题解决 &mdash; SafeDriver 1.2.7 文档</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/translations.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="genindex.html" />
+    <link rel="search" title="搜索" href="search.html" />
+    <link rel="prev" title="使用SafeDriver" href="use.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> SafeDriver
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="在文档中搜索" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">简介</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Install.html">配置SafeDriver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use.html">使用SafeDriver</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">SafeDriver问题解决</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#linuxmac">linux和mac不能正常使用</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id1">SafeDriver不稳定</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mac">mac用户写好了路径也不能使用？</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#driver">为什么不能给火狐浏览器替换driver？</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SafeDriver</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>SafeDriver问题解决</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/problem.rst.txt" rel="nofollow"> 查看页面源码</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="safedriver">
+<h1>SafeDriver问题解决<a class="headerlink" href="#safedriver" title="永久链接至标题"></a></h1>
+<section id="linuxmac">
+<h2>linux和mac不能正常使用<a class="headerlink" href="#linuxmac" title="永久链接至标题"></a></h2>
+<p>在linux和mac中使用，为了稳定性，需要将pypath和os_填写完整，pypath为driver需要放置的
+路径，而os_是当前使用的操作系统，目前支持的操作系统”win”, “linux”, “mac”, “mac_m1”</p>
+</section>
+<section id="id1">
+<h2>SafeDriver不稳定<a class="headerlink" href="#id1" title="永久链接至标题"></a></h2>
+<p>SafeDriver使用的是最简单的获取方式，所以受网站变化的影响也比较大，比较好的是，driver
+网站目前更新并没有非常频繁，所以获取也不会有很大影响，当使用不稳定的时候，可以尝试
+写入当前系统和driver保存路径</p>
+</section>
+<section id="mac">
+<h2>mac用户写好了路径也不能使用？<a class="headerlink" href="#mac" title="永久链接至标题"></a></h2>
+<p>mac用户某些路径是不可见或者不可操作的，所以，mac用户如果想稳定的使用此工具，最好将
+driver放入一个公共的文件夹中，在调用的时候，写好当前driver的路径，如下方所示:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">SafeDriver.drivers</span> <span class="kn">import</span> <span class="n">driver</span><span class="p">,</span> <span class="n">option</span>
+
+<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;D:</span><span class="se">\\</span><span class="s1">python&#39;</span>
+<span class="n">dr</span> <span class="o">=</span> <span class="n">driver</span><span class="p">(</span><span class="n">executable_path</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
+<span class="n">dr</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://www.baidu.com&quot;</span><span class="p">)</span>
+<span class="n">dr</span><span class="o">.</span><span class="n">quit</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="driver">
+<h2>为什么不能给火狐浏览器替换driver？<a class="headerlink" href="#driver" title="永久链接至标题"></a></h2>
+<p>目前SafeDriver仅支持chromedriver的更换，这也是更多人选择的driver，后续如果有更多的
+使用，会考虑将火狐等浏览器加入</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="use.html" class="btn btn-neutral float-left" title="使用SafeDriver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> 上一页</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; 版权所有 2022, 测码范晔.</p>
+  </div>
+
+  利用 <a href="https://www.sphinx-doc.org/">Sphinx</a> 构建，使用了 
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">主题</a>
+    由 <a href="https://readthedocs.org">Read the Docs</a>开发.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

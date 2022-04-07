@@ -6,7 +6,7 @@
 ================
 >>> pip install SafeDriver
 
-导入SfeDriver
+导入SafeDriver
 ===============
 ``from SafeDriver.drivers import driver, option``
 
