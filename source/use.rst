@@ -9,13 +9,13 @@
 如何使用driver
 ----------------
 
-.. py:function:: driver(*args, **kwargs);
+.. py:function:: chrome_driver(*args, **kwargs);
 
     :param: 输入参数同selenium的webdriver.Chrome()
 
 .. code-block:: python
 
-    from SafeDriver.drivers import driver, option
+    from SafeDriver.drivers import chrome_driver, option
 
     dr = driver()
     dr.get("https://www.baidu.com")
@@ -27,7 +27,7 @@
 
 .. code-block:: python
 
-    from SafeDriver.drivers import driver, option
+    from SafeDriver.drivers import chrome_driver, option
 
     option.headless = True
     dr = driver()
@@ -48,7 +48,10 @@
 
 .. py:function:: option.pypath($str);
 
-    :param string: 需要保存的driver路径
+    :param string: python根目录路径，默认需要保存的driver路径
+    
+.. py:function:: option.chromedriver_path($str);
+    :param string: 如果使用手动配置chromedriver地址的方式，则可以使用此方法设置chromedriver路径
 
 .. warning:: 
 
@@ -58,7 +61,8 @@
 
 .. code-block:: python
 
-    from SafeDriver.drivers import driver, option
+    from SafeDriver.drivers import chrome_driver, option
     option.os_ = 'win'
     option.pypath = 'D:\\python'
+    option.chromedriver_path = './driver'
 
