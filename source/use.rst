@@ -17,7 +17,7 @@
 
     from SafeDriver.drivers import chrome_driver, option
 
-    dr = driver()
+    dr = chrome_driver()
     dr.get("https://www.baidu.com")
     dr.quit()
 
@@ -30,7 +30,7 @@
     from SafeDriver.drivers import chrome_driver, option
 
     option.headless = True
-    dr = driver()
+    dr = chrome_driver()
     dr.get("https://www.baidu.com")
     print(dr.title)
     dr.quit()
@@ -50,7 +50,9 @@
 
     :param string: python根目录路径，默认需要保存的driver路径
     
+    
 .. py:function:: option.chromedriver_path($str);
+
     :param string: 如果使用手动配置chromedriver地址的方式，则可以使用此方法设置chromedriver路径
 
 .. warning:: 
