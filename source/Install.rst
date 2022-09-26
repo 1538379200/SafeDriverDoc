@@ -8,5 +8,5 @@
 
 导入SafeDriver
 ===============
-``from SafeDriver.drivers import driver, option``
+``from SafeDriver.drivers import chrome_driver, option``
 
